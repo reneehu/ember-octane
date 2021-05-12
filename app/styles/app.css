@@ -21,3 +21,8 @@
   position: absolute;
   width: 1px;
 }
+
+
+#ember-testing-container {
+  display: none;
+}
