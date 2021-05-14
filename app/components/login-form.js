@@ -8,10 +8,12 @@ export default class LoginFormComponent extends Component {
     * @type {string}
     */
     @tracked userId = null;
-    handleSignIn(value) {
-        console.log(value);
-    }
+    //@tracked has to be added to anything that is rendered state or observed state
 
+    get isDisabled() {
+        return !this.userId;
+      }
+    
     /**
     * Handle change events on the <select>
     * @param {Event & { target: HTMLSelectElement }} evt
@@ -19,6 +21,10 @@ export default class LoginFormComponent extends Component {
     @action
     onSelectChanged(evt) {
         this.userId = evt.target.value;
+    }
+    
+    handleSignIn(value) {
+        console.log(value);
     }
 
     /**
